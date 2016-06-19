@@ -1,0 +1,28 @@
+h2 {
+	color: #00ff00;
+}
+
+#fulltext {
+	white-space:pre;
+}
+
+#ode{
+	text-align: center;
+	font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+
+#title{
+	font-size: 5em;
+	margin: 5% auto;
+}
+
+#fulltext{
+	font-size: 3em;
+	margin: auto;
+	/*text-align: left;*/
+	width: 80%;
+}
+
+.btn-lg {
+	font-size: 1.5em;
+}
