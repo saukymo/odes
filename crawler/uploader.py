@@ -1,5 +1,13 @@
 #coding: utf-8
 import psycopg2 as pg
+import ConfigParser
+
+cf = ConfigParser.ConfigParser()
+cf.read('../dev.conf')
+
+host = cf.get("database", "host")
+user = cf.get("database", "user")
+password = cf.get("database", "password")
 
 def create_tables():
     scripts = ["""
@@ -85,8 +93,11 @@ def upload_odes():
     db.commit()
 
 if __name__ == '__main__':
-    db = pg.connect(database="odes", user="", password="", host="", port="5432") 
+    db = pg.connect(database="odes", user=user, password=password, host=host, port="5432") 
     cu = db.cursor()
 
+    print "Database connected.."
     create_tables()
+    print "Table created.."
     upload_odes()
+    print "Upload finished.."
