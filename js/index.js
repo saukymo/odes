@@ -26,7 +26,7 @@ url="/odes-api/ode_id".replaceAll("ode_id", getUrlParameter('id'));
 
 $.get(url, function(data){
 	console.log(data);
-	$('#random_ode').attr("href", "/odes/index.html?id=ode_id".replaceAll("ode_id", getRandomInt(305)));
+	$('#random_ode').attr("href", "index.html?id=ode_id".replaceAll("ode_id", getRandomInt(305)));
 	$('#title').text(data[1].title);
 	$('#fulltext').text(data[1].full_text);
 	$('#category').append("<li><a href=\"" + "#" + "\" class=\"btn-lg\">" + data[1].p_class + "</a></li>")
@@ -35,6 +35,6 @@ $.get(url, function(data){
 	{
 		$('#category').append("<li><a href=\"" + "#" + "\" class=\"btn-lg\">" + data[1].p_subgroup + "</a></li>")
 	}
-	$('#left_ode').text("上一篇：" + data[0].title).attr("href", "/odes/index.html?id=ode_id".replaceAll("ode_id", data[0].id));
-	$('#right_ode').text("下一篇：" + data[2].title).attr("href", "/odes/index.html?id=ode_id".replaceAll("ode_id", data[2].id));
+	$('#left_ode').text("上一篇：" + data[0].title).attr("href", "index.html?id=ode_id".replaceAll("ode_id", data[0].id));
+	$('#right_ode').text("下一篇：" + data[2].title).attr("href", "index.html?id=ode_id".replaceAll("ode_id", data[2].id));
 })
