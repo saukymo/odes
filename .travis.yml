@@ -21,4 +21,4 @@ after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t shaobol/odes:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID . 
   - docker push shaobol/odes:$TRAVIS_BRANCH-$TRAVIS_BUILD_ID;
-  - sshpass -p $VPS_PASSWORD ssh -o stricthostkeychecking=no root@45.32.137.234 "sudo /home/saukymo/odes/deploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_ID"
+  - sshpass -p $VPS_PASSWORD ssh -o stricthostkeychecking=no root@$VPS_HOST "sudo /home/saukymo/odes/deploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_ID"
