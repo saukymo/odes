@@ -5,16 +5,16 @@
          <meta charset="utf-8" />
          <title>诗三百</title>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-         <script src="js/index.js" type="text/javascript"></script>
-         <link rel="stylesheet" type="text/css" href="css/styles.css">
-         <link href="favicon.ico" rel="icon" type="image/x-icon" />
+         <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+         <script src="{{ url_for('static', filename='index.js')}}" type="text/javascript"></script>
+         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+         <link href="{{ url_for('static', filename='favicon.ico')}}" rel="icon" type="image/x-icon" />
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img id="brand" src="favicon.png"></a> 
+                <a class="navbar-brand" href="#"><img id="brand" src="{{ url_for('static', filename='favicon.png')}}"></a> 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a id="random_ode" href="#" class="btn-lg">

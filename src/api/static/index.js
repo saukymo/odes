@@ -25,7 +25,7 @@ page_id = getUrlParameter('id');
 if (!page_id) {
 	page_id = 1;
 }
-url='/odes-api/ode_id'.replaceAll('ode_id', page_id);
+url='/odes/ode_id'.replaceAll('ode_id', page_id);
 
 $.get(url, function(data){
 	console.log(data);

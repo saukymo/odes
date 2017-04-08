@@ -1,13 +1,10 @@
 # coding: utf-8
+import os
 import psycopg2 as pg
-import ConfigParser
 
-cf = ConfigParser.ConfigParser()
-cf.read('../dev.conf')
-
-host = cf.get('database', 'host')
-user = cf.get('database', 'user')
-password = cf.get('database', 'password')
+host = '127.0.0.1'
+user = os.getenv('POSTGRES_USER', 'postgres')
+password = os.getenv('POSTGRES_PASSWORD', '')
 
 
 def create_tables():
@@ -47,7 +44,7 @@ def create_tables():
 
 def upload_one_ode(metadata):
     script = '''
-        INSERT INTO odes (p_class, p_group, p_subgroup, title, full_text) 
+        INSERT INTO odes (p_class, p_group, p_subgroup, title, full_text)
             VALUES (%(p_class)s, %(p_group)s, %(p_subgroup)s, %(title)s, %(full_text)s);
     '''
     cu.execute(script, metadata)
@@ -60,7 +57,7 @@ def upload_odes():
     cu.execute(script)
     db.commit()
 
-    with open('full_text.txt', 'rb') as f:
+    with open('full_text.txt', 'r') as f:
         content = f.readlines()
 
     metadata = None
@@ -74,10 +71,9 @@ def upload_odes():
                 if category[0] == '大雅' or category[0] == '小雅':
                     category.insert(0, '雅')
 
-            print idx,
+            print(idx, end='')
             for part in category:
-                print part,
-            print
+                print(part, end='')
             idx += 1
 
             if metadata is not None:
@@ -100,8 +96,8 @@ if __name__ == '__main__':
                     password=password, host=host, port='5432')
     cu = db.cursor()
 
-    print 'Database connected..'
+    print('Database connected..')
     create_tables()
-    print 'Table created..'
+    print('Table created..')
     upload_odes()
-    print 'Upload finished..'
+    print('Upload finished..')

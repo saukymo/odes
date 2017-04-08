@@ -3,7 +3,7 @@
 
 import os
 import psycopg2 as pg
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 
 MAXID = 305
@@ -19,22 +19,23 @@ cu = db.cursor()
 
 
 @app.route('/')
+@app.route('/index.html')
 def index():
-	'''Hello world'''
-    return 'Hello World!'
+    '''Hello world'''
+    return render_template('index.html')
 
 
-@app.route('/odes-api/<int:id>')
+@app.route('/odes/<int:id>')
 def get_ode_by_id(id):
     pre_id, next_id = id - 1, id + 1
     script = '''
-		WITH s AS (SELECT * FROM odes where id=%s) SELECT row_to_json(s) FROM s;
-	'''
+        WITH s AS (SELECT * FROM odes where id=%s) SELECT row_to_json(s) FROM s;
+    '''
     cu.execute(script, (id, ))
     res = cu.fetchone()
     script = '''
-		WITH s AS (SELECT title FROM odes where id in (%s, %s)) SELECT array_to_json(array_agg(row_to_json(s))) FROM s;
-	'''
+        WITH s AS (SELECT title FROM odes where id in (%s, %s)) SELECT array_to_json(array_agg(row_to_json(s))) FROM s;
+    '''
     cu.execute(script, (pre_id, next_id))
     navi = cu.fetchone()
     if res is None or navi is None:
