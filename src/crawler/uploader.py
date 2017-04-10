@@ -2,7 +2,7 @@
 import os
 import psycopg2 as pg
 
-host = '127.0.0.1'
+host = os.getenv('POSTGRES_PORT_5432_TCP_ADDR', 'localhost')
 user = os.getenv('POSTGRES_USER', 'postgres')
 password = os.getenv('POSTGRES_PASSWORD', '')
 

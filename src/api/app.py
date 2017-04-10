@@ -5,9 +5,8 @@ import os
 import psycopg2 as pg
 from flask import Flask, jsonify, render_template
 
-
 MAXID = 305
-host = '127.0.0.1'
+host = os.getenv('POSTGRES_ADDR', 'localhost')
 user = os.getenv('POSTGRES_USER', 'postgres')
 password = os.getenv('POSTGRES_PASSWORD', '')
 
