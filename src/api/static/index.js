@@ -32,10 +32,10 @@ $.get(url, function(data) {
   $('#random_ode').attr('href', 'index.html?id=ode_id'.replaceAll('ode_id', getRandomInt(305)));
   $('#title').text(data.title);
   $('#fulltext').text(data.full_text);
-  $('#category').append('<li><a href=\'' + '#' + '\' class=\'btn-lg\'>' + data.p_class + '</a></li>')
-  $('#category').append('<li><a href=\'' + '#' + '\' class=\'btn-lg\'>' + data.p_group + '</a></li>')
+  $('#category').append('<li><a href=\'' + '#' + '\' >' + data.p_class + '</a></li>')
+  $('#category').append('<li><a href=\'' + '#' + '\' >' + data.p_group + '</a></li>')
   if (data.p_subgroup) {
-    $('#category').append('<li><a href=\'' + '#' + '\' class=\'btn-lg\'>' + data.p_subgroup + '</a></li>')
+    $('#category').append('<li><a href=\'' + '#' + '\' >' + data.p_subgroup + '</a></li>')
   }
   if (data.pre_title) {
     $('#left_ode').text('上一篇：' + data.pre_title).attr('href', 'index.html?id=ode_id'.replaceAll('ode_id', data.id - 1));
