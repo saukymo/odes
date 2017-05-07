@@ -23,3 +23,8 @@ ul.breadcrumb>li+li:before {
 ul.breadcrumb li a:hover {
     text-decoration: underline;
 }
+
+#fulltext {
+  white-space: pre-wrap;
+  word-wrap: break-word; 
+}
