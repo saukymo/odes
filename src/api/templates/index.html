@@ -14,37 +14,54 @@
 
 <body>
     <nav class="nav has-shadow">
-        <div class="nav-left">
-            <a class="nav-item">
-                <img src="{{ url_for('static', filename='favicon.png')}}">
-            </a>
-        </div>
-        <div class="nav-right nav-menu">
-            <div class="nav-item">
-                <a id="random_ode" href="#" class="button">
-                    <i class="fa fa-random" aria-hidden="true"></i>
+        <div class="container">
+            <div class="nav-left">
+                <a class="nav-item">
+                    <img src="{{ url_for('static', filename='favicon.png')}}">
                 </a>
+            </div>
+            <div class="nav-right">
+                <div class="nav-item">
+                    <a id="random_ode" href="#" class="button">
+                        <i class="fa fa-random" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
-    <section class="section">
-        <ul id="category" class="breadcrumb">
-        </ul>
-    </section>
-    <section class="section">
-        <div class="content has-text-centered">
-            <h1 id="title"></h1>
-            <p id="fulltext" class="has-text-centered" style="white-space: pre;"></p>
+    <section class="section  is-mobile">
+        <div class="container">
+            <ul id="category" class="breadcrumb">
+            </ul>
         </div>
     </section>
-    <section class="section">
-        <nav class="pagination is-centered">
-            <a id="left_ode" class="navigate">
-            </a>
-            <a id="right_ode" class="navigate">
-            </a>
-        </nav>
+    <section class="section  is-mobile">
+        <div class="container">
+            <div class="content has-text-centered is-medium">
+                <h1 id="title"></h1>
+                <p id="fulltext" class="has-text-centered" style="white-space: pre;"></p>
+            </div>
+        </div>
     </section>
+    <section class="section  is-mobile">
+        <div class="container">
+            <nav class="pagination is-centered">
+                <a id="left_ode" class="navigate">
+                </a>
+                <a id="right_ode" class="navigate">
+                </a>
+            </nav>
+        </div>
+    </section>
+    <footer class="footer  is-mobile">
+        <div class="container">
+            <div class="content is-small">
+                <p>Made by <a href="http://blog.mkdef.com" rel="nofollow">无生</a>. Contact him at <a href="mailto:shaobo@mkdef.com">shaobo@mkdef.com</a></p>
+                <p>Code released under the MIT License.</p>
+                <p>Based on <a href="http://bulma.io/" rel="nofollow">Bulma</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
